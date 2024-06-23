@@ -1,0 +1,67 @@
+@keyframes faded {
+  from{
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+  .levels {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .level-logo {
+    display: flex;
+    margin: 0px auto 15px auto;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .grid-item {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    width: 110px;
+    height: 110px;
+    background-image: url("../images/level-preview.png");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: faded;
+    animation-timeline: view();
+    text-align: center;
+  }
+
+  .hidden-grid{
+    width: 110px;
+    height: 90px;
+  }
+
+  .grid-item:hover {
+    cursor: pointer;
+  }
+
+  .availability {
+    background-color: white;
+    height: 44.82px;
+    width: 44.82px;
+    z-index: 1;
+    border-radius: 100%;
+  }
+
+  .lock-icon {
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #333;
+  }

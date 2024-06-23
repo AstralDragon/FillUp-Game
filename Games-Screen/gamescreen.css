@@ -1,0 +1,472 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* CSS Variables */
+:root {
+  --primary-font: "Poppins", sans-serif;
+  --background-color: #f6f6f6;
+  --button-hover-bg: rgba(0, 0, 0, 0.616);
+  --highlight-color: #9df329;
+  --modal-bg-color: rgba(0, 0, 0, 0.4);
+}
+
+@keyframes faded {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* General Styles */
+#menu:hover,
+#bestscore:hover {
+  cursor: pointer;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--primary-font);
+}
+
+.main-page {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Color Buttons */
+#color1 {
+  background-color: #ef3029;
+  border: 3px solid #b0231e;
+}
+#color2 {
+  background-color: #efdf4a;
+  border: 3px solid #a79c34;
+}
+#color3 {
+  background-color: #e4e2d1;
+  border: 3px solid #9f9e92;
+}
+#color4 {
+  background-color: #8c8c8c;
+  border: 3px solid #626262;
+}
+#color5 {
+  background-color: #6fd0ef;
+  border: 3px solid #4d90a6;
+}
+#color6 {
+  background-color: #5c4033;
+  border: 3px solid #412d24;
+}
+
+@media (max-width: 430px) {
+  .titlebar {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 66px;
+    padding: 10.5px 20px;
+  }
+
+  .mainsection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 26.5px;
+  }
+
+  .leftside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #remaining-moves {
+    width: 353px;
+    height: 45px;
+    background-color: #f5f5f5;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  #grid {
+    display: grid;
+    grid-template-rows: repeat(15, 1fr);
+    grid-template-columns: repeat(15, 1fr);
+    width: 393px;
+    height: 393px;
+    margin: 20px auto;
+  }
+
+  .cell {
+    width: 100%;
+    height: 100%;
+  }
+
+  .controls {
+    width: 50.5px;
+    height: 50.5px;
+    border-radius: 100%;
+  }
+
+  .color-btns {
+    display: flex;
+    gap: 10px;
+    position: fixed;
+    top: 36.5rem;
+  }
+
+  #gamedesc {
+    font-size: 13px;
+    font-weight: 400;
+    color: #5f6368;
+    width: 353px;
+    height: 40px;
+    text-align: center;
+    position: fixed;
+    bottom: 19vh;
+  }
+
+  .bottom {
+    height: 75px;
+    width: 353px;
+    position: fixed;
+    bottom: 0px;
+    align-self: center;
+    justify-self: baseline;
+    background-image: url("../images/wallhaven-p9pgjp_1920x1080.png");
+  }
+
+  /* Modals */
+  .modal,
+  .best,
+  .endmodal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--modal-bg-color);
+  }
+
+  .modal-content {
+    background-color: #000;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+
+  .modal-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  .close {
+    position: sticky;
+    top: 48rem;
+    left: 9.5rem;
+    z-index: 10;
+  }
+
+  .close button {
+    height: 32px;
+    width: 90px;
+    font-weight: bold;
+    border: none;
+    font-size: 17px;
+    background-color: #fff;
+    border-radius: 100px;
+  }
+
+  /* best score */
+  .moves-content {
+    background-color: white;
+    border-radius: 24px;
+    width: 354px;
+    height: 283px;
+    font-size: 15px;
+    margin: 35vh auto;
+  }
+
+  .close2 span {
+    display: none;
+  }
+
+  .close2 button {
+    height: 55px;
+    width: 302px;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: var(--highlight-color);
+    border-radius: 100px;
+    position: fixed;
+    top: 31rem;
+    left: 2.9rem;
+  }
+
+  /* End Game Screen */
+  .endmodal-content {
+    background-color: white;
+    border-radius: 24px;
+    width: 354px;
+    height: 283px;
+    font-size: 15px;
+    box-sizing: border-box;
+    margin: 18.7rem auto;
+    padding: 20px;
+    border: 1px solid #888;
+  }
+
+  .endclose button {
+    height: 55px;
+    width: 302px;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: var(--highlight-color);
+    border-radius: 100px;
+    position: fixed;
+    top: 31rem;
+    left: 2.9rem;
+  }
+}
+
+@media (max-height:828px) {
+  #gamedesc{
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .titlebar {
+    margin-top: 50px;
+    padding: 10.5px 0;
+    display: flex;
+    height: 66px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #remaining-moves {
+    background-color: var(--background-color);
+    height: 45px;
+    width: 340px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  #moves {
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  .controls {
+    width: 48.33px;
+    height: 48.33px;
+    border-radius: 100%;
+  }
+
+  .color-btns {
+    display: flex;
+    gap: 10px;
+  }
+
+  #gamedesc {
+    font-size: 13px;
+    font-weight: 400;
+    color: #5f6368;
+    width: 353px;
+    height: 40px;
+    text-align: center;
+  }
+
+  .ad1 {
+    height: 292.67px;
+    width: 340px;
+    background-image: url("../images/wallhaven-p9pgjp_1920x1080.png");
+  }
+
+  .mainsection {
+    display: flex;
+    width: 880px;
+    margin: 8px 0 32px;
+  }
+
+  .leftside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 20px;
+  }
+
+  #grid {
+    display: grid;
+    grid-template-rows: repeat(15, 1fr);
+    grid-template-columns: repeat(15, 1fr);
+    width: 500px;
+    height: 500px;
+    margin: auto;
+  }
+
+  .cell {
+    width: 100%;
+    height: 100%;
+  }
+
+  .bottom {
+    height: 124px;
+    width: 880px;
+    background-image: url("../images/wallhaven-p9pgjp_1920x1080.png");
+  }
+
+  /* Modals */
+  .modal,
+  .best,
+  .endmodal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--modal-bg-color);
+  }
+
+  .modal-content {
+    background-color: #000;
+    margin: 135px auto;
+    padding: 0 5px;
+    width: 393px;
+    height: 645px;
+    overflow-y: scroll;
+  }
+
+  .modal-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  .close {
+    position: sticky;
+    top: 36.4rem;
+    left: 9.5rem;
+    z-index: 10;
+  }
+
+  .close button {
+    height: 32px;
+    width: 87px;
+    border: none;
+    font-size: 17px;
+    background-color: #fff;
+    border-radius: 20px;
+  }
+
+  .close button:hover,
+  .close button:focus {
+    border: 1px solid white;
+    color: white;
+    background-color: var(--button-hover-bg);
+    cursor: pointer;
+  }
+
+  /* Best Score Pop Up */
+  .moves-content {
+    background-color: white;
+    border-radius: 24px;
+    width: 354px;
+    height: 283px;
+    margin: 35vh auto;
+  }
+
+  .close2 span {
+    display: none;
+  }
+
+  .close2 button {
+    height: 55px;
+    width: 302px;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: var(--highlight-color);
+    border-radius: 100px;
+    position: fixed;
+    top: 33.5rem;
+    left: 49rem;
+  }
+
+  .close2 button:hover,
+  .close2 button:focus {
+    color: var(--highlight-color);
+    background-color: black;
+    cursor: pointer;
+  }
+
+  /* End Game Screen */
+  .endmodal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 354px;
+    height: 283px;
+    border-radius: 24px;
+  }
+
+  .endclose {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .endclose button {
+    height: 55px;
+    width: 302px;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: var(--highlight-color);
+    border-radius: 100px;
+    position: fixed;
+    top: 33rem;
+    left: 49rem;
+  }
+
+  .endclose button:hover,
+  .endclose button:focus {
+    color: var(--highlight-color);
+    background-color: black;
+    cursor: pointer;
+  }
+
+  /* Media Queries */
+  .modal-content,
+  .moves-content,
+  .endmodal-content {
+    width: 354px;
+  }
+
+  .mainsection,
+  .bottom {
+    width: 880px;
+  }
+}
