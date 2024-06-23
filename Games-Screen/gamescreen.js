@@ -20,7 +20,7 @@ let level = 1;
 let gameOver = false;
 
 const endModal = document.getElementById("endModal");
-const closeModal = document.getElementById("endmodal-close");
+const closeModal = document.getElementById("endModal-close");
 
 // Function definitions
 function initGame() {
@@ -33,6 +33,7 @@ function initGame() {
 
   // Calculate and display minimum moves required
   const minMoves = calculateMinMoves();
+  leastMoves = minMoves;
   console.log(`Minimum moves required to solve this board: ${minMoves}`);
 }
 
@@ -129,7 +130,7 @@ function checkWinOrLose() {
 }
 
 function showModal(content, closeCallback) {
-  document.getElementById("endmodal-body").innerHTML = content;
+  document.getElementById("endModal-body").innerHTML = content;
   endModal.style.display = "block";
   closeModal.onclick = closeCallback;
 }
@@ -231,13 +232,13 @@ function calculateMinMoves() {
 const modal = document.getElementById("myModal");
 const modal2 = document.getElementById("everBest");
 const btn = document.getElementById("menu");
-const btn2 = document.getElementById("bestscore");
+const btn2 = document.getElementById("bestScore");
 const span = document.getElementsByClassName("close")[0];
 const span2 = document.getElementsByClassName("close2")[0];
 
 btn.onclick = async function () {
   modal.style.display = "block";
-  const data = await loadHTML("levelmenu.html");
+  const data = await loadHTML("levelMenu.html");
   document.getElementById("modalBody").innerHTML = data;
 };
 
@@ -253,7 +254,7 @@ window.onclick = (event) => {
 
 btn2.onclick = async function () {
   modal2.style.display = "block";
-  const data = await loadHTML("../Games-Screen/best-result/bestresult.html");
+  const data = await loadHTML("../Games-Screen/best-result/bestResult.html");
   document.getElementById("scoreBody").innerHTML = data;
 };
 

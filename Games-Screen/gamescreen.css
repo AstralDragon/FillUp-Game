@@ -20,7 +20,7 @@
 
 /* General Styles */
 #menu:hover,
-#bestscore:hover {
+#bestScore:hover {
   cursor: pointer;
 }
 
@@ -63,7 +63,7 @@ body {
 }
 
 @media (max-width: 430px) {
-  .titlebar {
+  .titleBar {
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
@@ -72,7 +72,7 @@ body {
     padding: 10.5px 20px;
   }
 
-  .mainsection {
+  .mainSection {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -80,7 +80,7 @@ body {
     margin-top: 26.5px;
   }
 
-  .leftside {
+  .leftSide {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -125,7 +125,7 @@ body {
     top: 36.5rem;
   }
 
-  #gamedesc {
+  #gameDesc {
     font-size: 13px;
     font-weight: 400;
     color: #5f6368;
@@ -149,7 +149,7 @@ body {
   /* Modals */
   .modal,
   .best,
-  .endmodal {
+  .endModal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -217,7 +217,7 @@ body {
   }
 
   /* End Game Screen */
-  .endmodal-content {
+  .endModal-content {
     background-color: white;
     border-radius: 24px;
     width: 354px;
@@ -229,7 +229,7 @@ body {
     border: 1px solid #888;
   }
 
-  .endclose button {
+  .endClose button {
     height: 55px;
     width: 302px;
     border: none;
@@ -244,13 +244,13 @@ body {
 }
 
 @media (max-height:828px) {
-  #gamedesc{
+  #gameDesc{
     display: none;
   }
 }
 
 @media (min-width: 768px) {
-  .titlebar {
+  .titleBar {
     margin-top: 50px;
     padding: 10.5px 0;
     display: flex;
@@ -286,7 +286,7 @@ body {
     gap: 10px;
   }
 
-  #gamedesc {
+  #gameDesc {
     font-size: 13px;
     font-weight: 400;
     color: #5f6368;
@@ -301,13 +301,13 @@ body {
     background-image: url("../images/wallhaven-p9pgjp_1920x1080.png");
   }
 
-  .mainsection {
+  .mainSection {
     display: flex;
     width: 880px;
     margin: 8px 0 32px;
   }
 
-  .leftside {
+  .leftSide {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -338,7 +338,7 @@ body {
   /* Modals */
   .modal,
   .best,
-  .endmodal {
+  .endModal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -421,7 +421,7 @@ body {
   }
 
   /* End Game Screen */
-  .endmodal-content {
+  .endModal-content {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
@@ -431,14 +431,14 @@ body {
     border-radius: 24px;
   }
 
-  .endclose {
+  .endClose {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
   }
 
-  .endclose button {
+  .endClose button {
     height: 55px;
     width: 302px;
     border: none;
@@ -451,8 +451,8 @@ body {
     left: 49rem;
   }
 
-  .endclose button:hover,
-  .endclose button:focus {
+  .endClose button:hover,
+  .endClose button:focus {
     color: var(--highlight-color);
     background-color: black;
     cursor: pointer;
@@ -461,11 +461,11 @@ body {
   /* Media Queries */
   .modal-content,
   .moves-content,
-  .endmodal-content {
+  .endModal-content {
     width: 354px;
   }
 
-  .mainsection,
+  .mainSection,
   .bottom {
     width: 880px;
   }

@@ -1,6 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const gridItems = document.querySelectorAll(".grid-item");
 
+  // causing grid to disappear
+  const gridContainer = document.querySelector(".grid-container");
+
+  // Create 30 grid items
+  for (let i = 0; i < 30; i++) {
+    const gridItem = document.createElement("div");
+    gridItem.classList.add("grid-item", "locked");
+
+    const availability = document.createElement("div");
+    availability.classList.add("availability");
+
+    const lockIcon = document.createElement("span");
+    lockIcon.classList.add("lock-icon");
+    const lockImg = document.createElement("img");
+    lockImg.src = "../images/lock.svg";
+    lockImg.alt = "";
+    lockIcon.appendChild(lockImg);
+
+    availability.appendChild(lockIcon);
+    gridItem.appendChild(availability);
+
+    gridContainer.appendChild(gridItem);
+  }
+  // -----------------------------------------------------------------
+
+  // Add click event listener to each grid item
+  const gridItems = document.querySelectorAll(".grid-item");
   gridItems.forEach((item, index) => {
     item.addEventListener("click", () => {
       if (!item.classList.contains("locked")) {
