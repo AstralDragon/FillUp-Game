@@ -62,7 +62,7 @@ body {
   border: 3px solid #412d24;
 }
 
-@media (max-width: 430px) {
+@media (max-width: 881px) {
   .titleBar {
     box-sizing: border-box;
     display: flex;
@@ -143,7 +143,11 @@ body {
     bottom: 0px;
     align-self: center;
     justify-self: baseline;
-    background-image: url("../images/wallhaven-p9pgjp_1920x1080.png");
+    background-image: url("../images/placeholder-rectangle.jpeg");
+  }
+
+  .ad1 {
+    display: none;
   }
 
   /* Modals */
@@ -174,19 +178,19 @@ body {
 
   .close {
     position: sticky;
-    top: 48rem;
-    left: 9.5rem;
+    top: 48.5rem;
+    display: flex;
+    justify-content: center;
     z-index: 10;
   }
 
   .close button {
     height: 32px;
-    width: 90px;
-    font-weight: bold;
+    width: 87px;
     border: none;
     font-size: 17px;
     background-color: #fff;
-    border-radius: 100px;
+    border-radius: 20px;
   }
 
   /* best score */
@@ -195,12 +199,17 @@ body {
     border-radius: 24px;
     width: 354px;
     height: 283px;
-    font-size: 15px;
     margin: 35vh auto;
+    box-sizing: border-box;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
-  .close2 span {
-    display: none;
+  .close2 {
+    display: flex;
+    justify-content: center;
   }
 
   .close2 button {
@@ -211,23 +220,37 @@ body {
     font-weight: bold;
     background-color: var(--highlight-color);
     border-radius: 100px;
-    position: fixed;
-    top: 31rem;
-    left: 2.9rem;
+  }
+
+  .close2 button:hover,
+  .close2 button:focus {
+    color: var(--highlight-color);
+    background-color: black;
+    cursor: pointer;
   }
 
   /* End Game Screen */
   .endModal-content {
     background-color: white;
-    border-radius: 24px;
     width: 354px;
-    height: 283px;
-    font-size: 15px;
-    box-sizing: border-box;
-    margin: 18.7rem auto;
-    padding: 20px;
-    border: 1px solid #888;
+    height: 260px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    position: absolute;
+    top: 50%; /* Position the top edge 50% from the top */
+    left: 50%; /* Position the left edge 50% from the left */
+    transform: translate(-50%, -50%);
   }
+
+  /* .endClose {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  } */
 
   .endClose button {
     height: 55px;
@@ -237,19 +260,17 @@ body {
     font-weight: bold;
     background-color: var(--highlight-color);
     border-radius: 100px;
-    position: fixed;
-    top: 31rem;
-    left: 2.9rem;
+    /* margin-top: 24px; */
   }
 }
 
-@media (max-height:828px) {
-  #gameDesc{
+@media (max-height: 828px) {
+  #gameDesc {
     display: none;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 882px) {
   .titleBar {
     margin-top: 50px;
     padding: 10.5px 0;
@@ -298,7 +319,7 @@ body {
   .ad1 {
     height: 292.67px;
     width: 340px;
-    background-image: url("../images/wallhaven-p9pgjp_1920x1080.png");
+    background-image: url("../images/placeholder-square.png");
   }
 
   .mainSection {
@@ -332,7 +353,10 @@ body {
   .bottom {
     height: 124px;
     width: 880px;
-    background-image: url("../images/wallhaven-p9pgjp_1920x1080.png");
+    background-image: url("../images/placeholder-rectangle.jpeg");
+    background-position: 0%;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   /* Modals */
@@ -366,7 +390,8 @@ body {
   .close {
     position: sticky;
     top: 36.4rem;
-    left: 9.5rem;
+    display: flex;
+    justify-content: center;
     z-index: 10;
   }
 
@@ -394,10 +419,17 @@ body {
     width: 354px;
     height: 283px;
     margin: 35vh auto;
+    box-sizing: border-box;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
-  .close2 span {
-    display: none;
+  .close2 {
+    /* top: 36.4rem; */
+    display: flex;
+    justify-content: center;
   }
 
   .close2 button {
@@ -408,9 +440,6 @@ body {
     font-weight: bold;
     background-color: var(--highlight-color);
     border-radius: 100px;
-    position: fixed;
-    top: 33.5rem;
-    left: 49rem;
   }
 
   .close2 button:hover,
@@ -422,21 +451,28 @@ body {
 
   /* End Game Screen */
   .endModal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
+    background-color: white;
     width: 354px;
-    height: 283px;
+    height: 260px;
     border-radius: 24px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    position: absolute;
+    top: 50%; /* Position the top edge 50% from the top */
+    left: 50%; /* Position the left edge 50% from the left */
+    transform: translate(-50%, -50%);
+    /*
+    */
   }
 
-  .endClose {
-    color: #aaa;
+  /* .endClose {
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
+  } */
 
   .endClose button {
     height: 55px;
@@ -446,9 +482,7 @@ body {
     font-weight: bold;
     background-color: var(--highlight-color);
     border-radius: 100px;
-    position: fixed;
-    top: 33rem;
-    left: 49rem;
+    /* margin-top: 24px; */
   }
 
   .endClose button:hover,
@@ -456,17 +490,5 @@ body {
     color: var(--highlight-color);
     background-color: black;
     cursor: pointer;
-  }
-
-  /* Media Queries */
-  .modal-content,
-  .moves-content,
-  .endModal-content {
-    width: 354px;
-  }
-
-  .mainSection,
-  .bottom {
-    width: 880px;
   }
 }

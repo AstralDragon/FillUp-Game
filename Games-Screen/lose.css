@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 14px;
+  font-size: 15px;
+}
+
+.icon-container {
+  width: 80px;
+  height: 80px;
+}
+
+a {
+  font-weight: bolder;
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -33,7 +33,7 @@ function initGame() {
 
   // Calculate and display minimum moves required
   const minMoves = calculateMinMoves();
-  leastMoves = minMoves;
+  localStorage.setItem("minMoves", minMoves);
   console.log(`Minimum moves required to solve this board: ${minMoves}`);
 }
 
@@ -141,7 +141,7 @@ async function loadHTML(url) {
 }
 
 async function showWinModal() {
-  const content = await loadHTML("./win-condition/win.html");
+  const content = await loadHTML("win.html");
   showModal(content, () => {
     endModal.style.display = "none";
     nextLevel();
@@ -149,7 +149,7 @@ async function showWinModal() {
 }
 
 async function showLoseModal() {
-  const content = await loadHTML("./lose-condition/lose.html");
+  const content = await loadHTML("lose.html");
   showModal(content, () => {
     endModal.style.display = "none";
   });
@@ -236,10 +236,73 @@ const btn2 = document.getElementById("bestScore");
 const span = document.getElementsByClassName("close")[0];
 const span2 = document.getElementsByClassName("close2")[0];
 
+// Example function to handle level selection (you can adjust as needed)
+function handleLevelSelection(levelNumber) {
+  console.log("Selected level:", levelNumber);
+  // Perform actions based on the selected level, such as setting moves count
+  setMovesCount(levelNumber);
+  // Close the modal or perform other actions
+  modal.style.display = "none";
+}
+
+// Example function to set moves count based on level selection
+function setMovesCount(moves) {
+  console.log("Setting moves count to:", moves);
+  // Update moves count logic here
+  moveLimit = moves;
+  movesCount = 0;
+  initGame();
+}
+
 btn.onclick = async function () {
   modal.style.display = "block";
   const data = await loadHTML("levelMenu.html");
   document.getElementById("modalBody").innerHTML = data;
+
+  // Define the number of unlocked and locked levels you want to add
+  const numberOfUnlockedLevels = level; // Change this number as needed
+  const numberOfLockedLevels = 30 - level; // Change this number as needed
+
+  // Get the grid container element
+  const gridContainer = document.querySelector(".grid-container");
+
+  // Function to create a grid item
+  function createGridItem(content, isLocked = false) {
+    const gridItem = document.createElement("div");
+    gridItem.classList.add("grid-item");
+    if (isLocked) {
+      gridItem.classList.add("locked");
+      gridItem.innerHTML = `
+                        <div class="availability">
+                            <span class="lock-icon">
+                                <img src="../images/lock.svg" alt="">
+                            </span>
+                        </div>`;
+    } else {
+      // gridItem.innerHTML = `<div class="availabilityLevel">${content}</div>`;
+      const availabilityLevel = document.createElement("div");
+      availabilityLevel.classList.add("availabilityLevel");
+      availabilityLevel.textContent = content;
+      availabilityLevel.addEventListener("click", () => {
+        handleLevelSelection(parseInt(content, 10)); // Convert content to a number if needed
+      });
+      gridItem.appendChild(availabilityLevel);
+    }
+    return gridItem;
+  }
+
+  // Add unlocked levels
+  for (let i = 0; i < numberOfUnlockedLevels; i++) {
+    const level = 30 - i; // Example: Level number (can be dynamic)
+    const gridItem = createGridItem(level);
+    gridContainer.appendChild(gridItem);
+  }
+
+  // Add locked levels
+  for (let i = 0; i < numberOfLockedLevels; i++) {
+    const gridItem = createGridItem(null, true);
+    gridContainer.appendChild(gridItem);
+  }
 };
 
 span.onclick = () => {
@@ -254,7 +317,7 @@ window.onclick = (event) => {
 
 btn2.onclick = async function () {
   modal2.style.display = "block";
-  const data = await loadHTML("../Games-Screen/best-result/bestResult.html");
+  const data = await loadHTML("bestResult.html");
   document.getElementById("scoreBody").innerHTML = data;
 };
 

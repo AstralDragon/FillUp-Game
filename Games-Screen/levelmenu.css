@@ -65,3 +65,15 @@
     transform: translate(-50%, -50%);
     color: #333;
   }
+
+  .availabilityLevel{
+    background-color: black;
+    color: white;
+    height: 44.82px;
+    width: 44.82px;
+    z-index: 1;
+    border-radius: 100%;
+    font-weight: bold;
+    padding-top: 10px;
+    box-sizing: border-box;
+  }
