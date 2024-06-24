@@ -142,6 +142,7 @@ async function loadHTML(url) {
 
 async function showWinModal() {
   const content = await loadHTML("win.html");
+  document.getElementById("movesTaken").innerHTML = movesCount;
   showModal(content, () => {
     endModal.style.display = "none";
     nextLevel();
@@ -316,9 +317,12 @@ window.onclick = (event) => {
 };
 
 btn2.onclick = async function () {
+  const minMoves = localStorage.getItem("minMoves");
   modal2.style.display = "block";
   const data = await loadHTML("bestResult.html");
   document.getElementById("scoreBody").innerHTML = data;
+
+  document.getElementById("moveValue").innerHTML = minMoves;
 };
 
 span2.onclick = () => {
